@@ -22,6 +22,16 @@ type alias SInteger = Int32 // alias is left side.
 Foundation.fopen
 ```
 
+- Stride type:  function for making a struct that can be used to define range in for - in statement.
+
+```swift
+var st1 = stride(from:8, through:20, by:4)  // This is using 'through'.
+for i in sty { print(" (\i)") } // Print 8 12 16 20.
+
+var st2 = stride(from:8, to:20, by:4) // This is using 'to'.
+for in in sty { print(" \(i)" } // Print 8 12 16 
+``` 
+
 ### Control statements
 
 #### for 
