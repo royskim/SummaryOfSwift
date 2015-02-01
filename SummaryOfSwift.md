@@ -99,8 +99,10 @@ Use Struct for expression of related data, Class for structure and or Role of pr
 - Use 'didSet' or 'willSet' to update related properties in the class.
 
 
-### Functions 
+### Function
 
+- Function is the first class **DATA TYPE**.  
+- 'closure' is function without name. 
 - Functions without a defined return type return a special value of type Void. This is simply an empty tuple, in effect a tuple with zero elements, which can be written as ().
 - If the tuple type to be returned from a function has the potential to have “no value” for the entire tuple, you can use an optional tuple return type to reflect the fact that the entire tuple can be nil. 
 	- An optional tuple type such as (Int, Int)? is different from a tuple that contains optional types such as (Int?, Int?). With an optional tuple type, the entire tuple is optional, not just each individual value within the tuple.
@@ -156,6 +158,60 @@ func​ ​arithmeticMean​(​numbers​: ​Double​...) -> ​Double​ {
     // numbers is an array of Double.
 }
 ```
+'_' is used for ignoring.
+
+```swift
+_ = myFunction() // Just ignore the return value from the function.
+
+func compare(a:Int, b:Int, _:Bool) -> Bool { // Do not use the third parameter.
+	return a > b
+} 
+```
+Functions can be overloaded with;
+
+- different number of parameters
+- different data type of parameter
+- different data type of return value
+- different external parameter name
+
+### Structure
+
+Similar to Class but Structure is;
+
+- value type data
+- No inheritance
+- Structure and processing is fixed before running.
+
+Structure is referenced by only one place of code. If it is required to be referenced by more than one place, use class instead of structure.
+
+Default initializer, structName(), can be used if all properties have default values and there is no initializer defined.
+
+Memberwise initializer can be used if there is no initializer and all properties does not have default values.
+
+```swift
+var aDate = Date(year:1969, month:12, day:13)
+```
+
+Initializer has only name, init.
+In the initializer, you can set a value for constant property *once*.  If you try to set value of constant property from different initializer more than once, it will be an error.
+
+Add 'mutating' in front of func for method that modify any value in the struct. (No for instance method that modify value of type property.)
+
+Two types of property ; Stored property and Computed property.
+
+##### Computed property
+- Always use 'var' because the value of the property can be changed by computation.
+- Can have 'get' and or 'set' as getter and setter.
+- 'newValue' is the default name of parameter for 'set'.  
+
+##### Property Observer
+- 'willSet' and 'didSet'.
+- 'willSet' can use 'newValue' to refer a new value from parameter.
+- 'didSet' can use 'oldValue' to refer an old value of the property.
+ 
+##### subscript
+- Allow to access to properties just like those are elements of an Array. 
+- I don't see any specific needs for this.
 
 ### extension
 Replace of Category in Objective-C.
@@ -220,8 +276,8 @@ class​ ​TriangleAndSquare​ {
 |:---- |:---- |
 | Category | extension |
 | NA| tuple |
-| class method | Type method |
-| class property | Type property | 
+| class method  (ex: + methodName)| Type method (ex: static methodName)|
+| class property (ex: + propertyName)| Type property (ex: static propertyName)| 
 | Delegation is delegate process of some method to other class.   | Delegation is calling other initialiser to complete instantiation of a class. |
 
 - In Swift, '=' does not return any value while Objective-C returns the signed value.
