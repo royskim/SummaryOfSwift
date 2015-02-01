@@ -213,6 +213,46 @@ Two types of property ; Stored property and Computed property.
 - Allow to access to properties just like those are elements of an Array. 
 - I don't see any specific needs for this.
 
+### Optional
+- Optional can have value 'nil'.<br>
+- Default value of optional variable and constant is 'nil'.
+- Use '!' for unwrapping optional value.
+- Optional Binding :
+
+```swift
+let year : Int? = "2020".toInt()
+if let y = year { // <-- Optional Binding. You can use 'var' instead of 'let'.
+	// do something.
+} else {
+	// do something.
+}
+```
+- nil coalescing operator :
+
+```swift
+(opv != nil) ? opv! : S
+ // Above is same as below.
+ opv ?? S
+ 
+// Example:
+var val =  str.toInt() ?? 0  // Return 0 if the value of str is nil or cannot be converted to Int.
+```
+ - Implicitly unwrapped optional : 
+ 	- Use when you make sure the value is not 'nil' after a certain point of code.
+ 	- It is programmer's responsibility to make sure the value is not 'nil'.
+ 	- Use '!' for declaring the data type.
+
+ ```swift
+ 	let year : Int! = "2020".toInt()
+ 	println("\(year - 2015) is left"
+ ```
+
+- Failable initializer : 
+	- In some cases, initializer of class or struct can fail to make an instance of it and have to return 'nil'. 
+	- This can happen with wrong value for initialiser's parameter such as file path or URL.
+	- Use init? instead of init. Return 'nil' when the initializer fails. But do not return instance.
+	- 
+
 ### extension
 Replace of Category in Objective-C.
 
