@@ -39,14 +39,14 @@ for in in sty { print(" \(i)" } // Print 8 12 16
 - Operator '==' is True when the number and order of elements in both Arrays are identical.
 - Methods of the Array
 	- filter(_ : ) -> [T]  Parameter is a closure.  Execute the closure for each element in the array and return a new array with only elements those fulfil the condition.
-	- map <U> ( _ :) -> [U] Parameter is a closure. Execute the closure for each elements in the array and make a new array with the results.
-	- reduce<U>( _ : U, _ :(U, T) -> U ) -> U  Parameter are default value and closure. Execute the closure with the default value and the first element in the array, and then execute the closure with the result of the first execution and next element as parameters. And continue the execution for the last elements.  
+	- map \<U> ( _ :) -> [U] Parameter is a closure. Execute the closure for each elements in the array and make a new array with the results.
+	- reduce\<U>( _ : U, _ :(U, T) -> U ) -> U  Parameter are default value and closure. Execute the closure with the default value and the first element in the array, and then execute the closure with the result of the first execution and next element as parameters. And continue the execution for the last elements.  
 - Use optional type to adding 'nil' to array.
 
 ```swift
 var sparse : [Int?] = [1,2,nil,4,nil]
 ```
-##### dictioary
+##### dictionary
 - How to define;
 
 ```swift
@@ -148,6 +148,24 @@ Use Int for usual cases. If you want more detailed data, use Float or Double. Fl
 Use Struct for expression of related data, Class for structure and or Role of processes of App.
 	
 ## Tuple
+- When to Use tuple;
+	- for small chunk of structured data those are not big enough to make a struct or a class. Do not make a complex data structure with tuple.
+	- Return more than one value from function or method.
+
+- How to use.
+
+```swift
+let catPhoto = ("Cat.png", 1024, 768) // Define tuple for an image file.
+println(catPhoto.0) // Can access to data in tuple by using index number starting from 0.
+
+let (file, width, height) = catPhoto // Can set each element of tuple to variable or constant.
+
+let (fileName, _, _) = catPhoto // Can ignore some values in tuple and use file name only. 
+
+let pic = ("dog.png", (1024, 768)) // tuple can include tuple.
+
+(1,2) == (1,2) // Error! No operator to compare two tuples. 
+``` 
 
 ## Enumeration
 
