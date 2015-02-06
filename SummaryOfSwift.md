@@ -33,13 +33,51 @@ var st2 = stride(from:8, to:20, by:4) // This is using 'to'.
 for in in sty { print(" \(i)" } // Print 8 12 16 
 ``` 
 ##### Array 
+
 - Only one type of data can be included in an Array.
 - Array is a value type.
 - Operator '==' is True when the number and order of elements in both Arrays are identical.
 - Methods of the Array
 	- filter(_ : ) -> [T]  Parameter is a closure.  Execute the closure for each element in the array and return a new array with only elements those fulfil the condition.
-	- map<U>(_ :) -> [U] Parameter is a closure. Execute the closure for each elements in the array and make a new array with the results.
+	- map <U> ( _ :) -> [U] Parameter is a closure. Execute the closure for each elements in the array and make a new array with the results.
 	- reduce<U>( _ : U, _ :(U, T) -> U ) -> U  Parameter are default value and closure. Execute the closure with the default value and the first element in the array, and then execute the closure with the result of the first execution and next element as parameters. And continue the execution for the last elements.  
+- Use optional type to adding 'nil' to array.
+
+```swift
+var sparse : [Int?] = [1,2,nil,4,nil]
+```
+##### dictioary
+- How to define;
+
+```swift
+var d : [String : Int]
+
+var e = [String : Int]()
+
+var d : [String : Int] = [:]
+```
+
+- How to use;
+
+```swift
+var d = ["Swift":2014, "Objective-C", 1983]
+if let y = d["ruby"] { // return value is optional because the key can contain nil value or is not exist.
+	println(y)
+}
+
+for (key, value) in d { // Getting tuple of key and value from dictionary.
+	println("\(key) and \(value)"
+}
+
+// Above is same as below.
+for t in d {
+	println("\(t.0) and \(t.1)"
+}
+
+d["Swift"] = nil // Deleting the key. Now the d is ["Objective-C" : 1983].
+```
+
+- '==' is true if two dictionaries have same keys and values.
 
 ### Control statements
 
@@ -109,6 +147,10 @@ Use Int for usual cases. If you want more detailed data, use Float or Double. Fl
 
 Use Struct for expression of related data, Class for structure and or Role of processes of App.
 	
+## Tuple
+
+## Enumeration
+
 ## Class
 - Not required to define parent class.
 - All instance properties should have default values in order to omit initialiser of the class.
