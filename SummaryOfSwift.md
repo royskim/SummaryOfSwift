@@ -23,7 +23,7 @@ Foundation.fopen
 ```
 
 ##### Stride type  
-function for making a struct that can be used to define range in for - in statement.
+function for making a struct that can be used to define range in 'for - in' statement.
 
 ```swift
 var st1 = stride(from:8, through:20, by:4)  // This is using 'through'.
@@ -32,7 +32,14 @@ for i in sty { print(" \(i)") } // Print 8 12 16 20.
 var st2 = stride(from:8, to:20, by:4) // This is using 'to'.
 for in in sty { print(" \(i)" } // Print 8 12 16 
 ``` 
-
+##### Array 
+- Only one type of data can be included in an Array.
+- Array is a value type.
+- Operator '==' is True when the number and order of elements in both Arrays are identical.
+- Methods of the Array
+	- filter(_ : ) -> [T]  Parameter is a closure.  Execute the closure for each element in the array and return a new array with only elements those fulfil the condition.
+	- map<U>(_ :) -> [U] Parameter is a closure. Execute the closure for each elements in the array and make a new array with the results.
+	- reduce<U>( _ : U, _ :(U, T) -> U ) -> U  Parameter are default value and closure. Execute the closure with the default value and the first element in the array, and then execute the closure with the result of the first execution and next element as parameters. And continue the execution for the last elements.  
 
 ### Control statements
 
@@ -228,7 +235,7 @@ Two types of property ; Stored property and Computed property.
 ### Optional
 - Optional can have value 'nil'.<br>
 - Default value of optional variable and constant is 'nil'.
-- Use '!' for unwrapping optional value.
+- Use '!' for unwrapping optional value. If the value is 'nil', unwrapping causes runtime error. 
 - Optional Binding :
 
 ```swift
@@ -260,10 +267,9 @@ var val =  str.toInt() ?? 0  // Return 0 if the value of str is nil or cannot be
  ```
 
 - Failable initializer : 
-	- In some cases, initializer of class or struct can fail to make an instance of it and have to return 'nil'. 
-	- This can happen with wrong value for initialiser's parameter such as file path or URL.
+	- In some cases, initializer of class or struct can fail to make an instance of it.
+	-  This can happen with wrong value for initialiser's parameter such as file path or URL.
 	- Use init? instead of init. Return 'nil' when the initializer fails. But do not return instance.
-	- 
 
 ### extension
 Replace of Category in Objective-C.
@@ -382,3 +388,4 @@ For quick reference, below is command-line Usage.
        -v, --version       Print "playground" version and exit
  
 
+  git
