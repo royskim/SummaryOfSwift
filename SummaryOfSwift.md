@@ -152,9 +152,10 @@ Use Struct for expression of related data, Class for structure and or Role of pr
 ## Enumeration
 
 ## Class
+
 - Not required to define parent class.
 - All instance properties should have default values in order to omit initialiser of the class.
-- 
+
 
 ### Properties
 - Use 'didSet' or 'willSet' to update related properties in the class.
