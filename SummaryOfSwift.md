@@ -155,7 +155,8 @@ Use Struct for expression of related data, Class for structure and or Role of pr
 	- Return more than one value from function or method.
 	- **If function is not declared to return value, it returns empty tuple, (). () is another expression of 'Void' type.**
 	- Tuple with one value is same as just the value.
-	
+	- Dictionary in Swift cannot contain different types of values but you can do it with Tuple.
+
 - How to use.
 
 ```swift
@@ -174,7 +175,14 @@ let photo = (file:"tiger.png", width:1024, height:768) // Tuple can have keyword
 print(photo.width) // Print 1024
 
 (1,2) == (1,2) // Error! No operator to compare two tuples. 
-``` 
+
+let day = (1,2)
+switch day {
+	case (1,1) : println("The first day of the year.")
+	case (5, 2...6) : println("Holidays.")
+	case (12, let d) : println("My Birthday.") // define constant with an element of tuple.
+	case (8, _) : println("Summer vacations.") // Ignore date.} // Keyword of tuple will be ignored in Switch statement.
+```
 
 
 
