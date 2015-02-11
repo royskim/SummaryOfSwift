@@ -181,12 +181,62 @@ switch day {
 	case (1,1) : println("The first day of the year.")
 	case (5, 2...6) : println("Holidays.")
 	case (12, let d) : println("My Birthday.") // define constant with an element of tuple.
-	case (8, _) : println("Summer vacations.") // Ignore date.} // Keyword of tuple will be ignored in Switch statement.
+	case (8, _) : println("Summer vacations.") // Ignore date.
+	case (let m, let d) where dayOfWeek(m, d) == 0 : println("\(m) / \(d) is Monday.")
+	default : println("default.")} // Keyword of tuple will be ignored in Switch statement.
 ```
 
 
 
 ## Enumeration
+- **Consider enum as tag for a bunch of data. You can use different data with a common tag by declaring them as members of an enum.**
+- **Use enum for defining data or using data as a group. Not for saving or modifying data.** 
+	- But, can modifying information in self. 
+- Enumeration in Swift can have;
+	- Computed property
+	- Method
+	- Type property
+	- Type method.
+	- initializer : init?(rawValue:) is automatically created and can be redefined.
+- Enumeration in Swift can not have;
+	- Stored property
+- Members in Enumeration cannot have same value.
+- Method in Enumeration **should be used to handle members of the Enumeration only**.
+- Method with keyword 'mutating' can change the value in a variable **by setting different value to 'self'**. 
+	- See below sample code. calling turnBack method will set different value to variable.
+
+
+```swift
+enum Direction : Int {
+    // Members
+    case Up = 0, Down, Right, Left
+    
+    static var defaultDirection = Direction.Left
+    
+    init() {
+        self = Direction.defaultDirection
+    }
+    // Computed property
+    var horizontal: Bool {
+        switch self {
+            case .Right, .Left: return true
+            default: return false        }    }
+    
+    mutating func turnBack() {
+        self = Direction(rawValue:((self.rawValue + 2) % 4))!    }}
+
+var a = Direction.Right
+let i = a.rawValue // i = 2 (Int)
+let k = Direction.Down.rawValue // k = 1 (Int)
+a.turnBack() // Now a has different value.
+let j = a.rawValue
+
+var e = Direction() // This line of code does not work in Xcode 6.3 Beta and I don't know why.
+let f = Direction.defaultDirection.rawValue 
+let g = e.rawValue
+println("aaa \(g)")
+```
+
 
 ## Class
 
