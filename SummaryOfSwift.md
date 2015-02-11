@@ -46,7 +46,9 @@ for in in sty { print(" \(i)" } // Print 8 12 16
 ```swift
 var sparse : [Int?] = [1,2,nil,4,nil]
 ```
+
 ##### dictionary
+
 - How to define;
 
 ```swift
@@ -151,7 +153,9 @@ Use Struct for expression of related data, Class for structure and or Role of pr
 - When to Use tuple;
 	- for small chunk of structured data those are not big enough to make a struct or a class. Do not make a complex data structure with tuple.
 	- Return more than one value from function or method.
-
+	- **If function is not declared to return value, it returns empty tuple, (). () is another expression of 'Void' type.**
+	- Tuple with one value is same as just the value.
+	
 - How to use.
 
 ```swift
@@ -163,9 +167,16 @@ let (file, width, height) = catPhoto // Can set each element of tuple to variabl
 let (fileName, _, _) = catPhoto // Can ignore some values in tuple and use file name only. 
 
 let pic = ("dog.png", (1024, 768)) // tuple can include tuple.
+print(pic.1.0) // Print 1024.
+
+
+let photo = (file:"tiger.png", width:1024, height:768) // Tuple can have keyword.
+print(photo.width) // Print 1024
 
 (1,2) == (1,2) // Error! No operator to compare two tuples. 
 ``` 
+
+
 
 ## Enumeration
 
