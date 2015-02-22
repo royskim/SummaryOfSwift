@@ -31,7 +31,8 @@ for i in sty { print(" \(i)") } // Print 8 12 16 20.
 
 var st2 = stride(from:8, to:20, by:4) // This is using 'to'.
 for in in sty { print(" \(i)" } // Print 8 12 16 
-``` 
+```
+
 ##### Array 
 
 - Only one type of data can be included in an Array.
@@ -237,6 +238,64 @@ let g = e.rawValue
 println("aaa \(g)")
 ```
 
+## Operator
+- Each operator has a priority between 0 to 255. The higher number has higher priority.
+- Prefix and Postfix operators does not have priority values. But there are orders; 
+	- Postfix > Prefix > other operators 
+
+### Defining new operator
+- You can define new operator by yourself.
+	- Declare the operator at top level not in a function or other data types. 
+
+```swift
+infix operator operator_name {
+	precedence 100 // priority. Default value is 100. 
+	associativity left // You can use one from left, right, and none. Default value is none.}
+
+prefix operator operator_name { }
+
+postfix operator operator_name { }```
+- Sample code for declaring a binary operator.
+
+```swift
+inifix operator ~ {
+	precedence 20
+	associativity none}
+
+fun ~ (n:Int, w:Int) -> String { // the first argument 'n' is the left operand and 'w' is right operand.
+	// any implementation
+	return str}
+```
+- Sample code for declaring a unary operator.
+
+```swift
+postfix operator % { } // Keyword postfix or prefix is required.
+
+postfix fun % (n:Int) -> Double {
+	return 0.01 * Double(n)}
+
+postfix operator % (n:Double) -> Double {
+	return 0.01 * n}
+```
+
+### Adding more functionality to existing operator
+- You can;
+	- adding supports for other data types
+	- make unary operator to binary or ternary operator.  
+
+### Postpone evaluation of argument
+- You can postpone the evaluation of argument by using @autoclosure.
+
+```swift
+func skip (cond: Bool, arg:Int) {
+	if !conf { println("value = \(arg)") }}
+	
+skip (someCondition(1), highCost(1000)) 
+
+// Evaluation of highCost takes long time and we want to avoid it. To do that, use @autoclosure.
+
+func skip (con:Bool, arg:@autoclosure() -> Int) {
+	if !cond { println("value = \(arg())") } // Evaluation will be executed when arg() is called.}```
 
 ## Class
 
