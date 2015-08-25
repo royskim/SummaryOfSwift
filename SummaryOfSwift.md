@@ -14,7 +14,7 @@ if a = 1 { ... // Error
 - Use 'typealias' to give a different name for a data type.  
 
 ```swift
-type alias SInteger = Int32 // alias is left side.
+type alias SInteger = Int32 // alias is the one on left side.
 ```
 - Use namespace to distinguish types with same name. 
 
@@ -184,7 +184,8 @@ switch day {
 	case (12, let d) : println("My Birthday.") // define constant with an element of tuple.
 	case (8, _) : println("Summer vacations.") // Ignore date.
 	case (let m, let d) where dayOfWeek(m, d) == 0 : println("\(m) / \(d) is Monday.")
-	default : println("default.")} // Keyword of tuple will be ignored in Switch statement.
+	default : println("default.")
+} // Keyword of tuple will be ignored in Switch statement.
 ```
 
 
@@ -221,10 +222,14 @@ enum Direction : Int {
     var horizontal: Bool {
         switch self {
             case .Right, .Left: return true
-            default: return false        }    }
+            default: return false
+        }
+    }
     
     mutating func turnBack() {
-        self = Direction(rawValue:((self.rawValue + 2) % 4))!    }}
+        self = Direction(rawValue:((self.rawValue + 2) % 4))!
+    }
+}
 
 var a = Direction.Right
 let i = a.rawValue // i = 2 (Int)
@@ -250,21 +255,25 @@ println("aaa \(g)")
 ```swift
 infix operator operator_name {
 	precedence 100 // priority. Default value is 100. 
-	associativity left // You can use one from left, right, and none. Default value is none.}
+	associativity left // You can use one from left, right, and none. Default value is none.
+}
 
 prefix operator operator_name { }
 
-postfix operator operator_name { }```
+postfix operator operator_name { }
+```
 - Sample code for declaring a binary operator.
 
 ```swift
 inifix operator ~ {
 	precedence 20
-	associativity none}
+	associativity none
+}
 
 fun ~ (n:Int, w:Int) -> String { // the first argument 'n' is the left operand and 'w' is right operand.
 	// any implementation
-	return str}
+	return str
+}
 ```
 - Sample code for declaring a unary operator.
 
@@ -272,10 +281,12 @@ fun ~ (n:Int, w:Int) -> String { // the first argument 'n' is the left operand a
 postfix operator % { } // Keyword postfix or prefix is required.
 
 postfix fun % (n:Int) -> Double {
-	return 0.01 * Double(n)}
+	return 0.01 * Double(n)
+}
 
 postfix operator % (n:Double) -> Double {
-	return 0.01 * n}
+	return 0.01 * n
+}
 ```
 
 ### Adding more functionality to existing operator
@@ -288,14 +299,17 @@ postfix operator % (n:Double) -> Double {
 
 ```swift
 func skip (cond: Bool, arg:Int) {
-	if !conf { println("value = \(arg)") }}
+	if !conf { println("value = \(arg)") }
+}
 	
 skip (someCondition(1), highCost(1000)) 
 
 // Evaluation of highCost takes long time and we want to avoid it. To do that, use @autoclosure.
 
 func skip (con:Bool, arg:@autoclosure() -> Int) {
-	if !cond { println("value = \(arg())") } // Evaluation will be executed when arg() is called.}```
+	if !cond { println("value = \(arg())") } // Evaluation will be executed when arg() is called.
+}
+```
 
 ## Class
 
@@ -357,7 +371,8 @@ let ddd = joinStringwithDefaultValue(firstString: "Hi, ") // The second paramete
 
 ```swift
 func alignRight(var string: String, count: Int, pad: Character) {
-	}
+	
+}
 ```
 - A variadic parameter accepts zero or more values of a specified type. A function may have only one variadic parameter and it should be placed as last parameter.
 
