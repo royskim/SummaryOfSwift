@@ -24,6 +24,7 @@ Foundation.fopen
 
 ##### Stride type  
 *This has been changed in Swift 2.0. Please ignore this section.*
+
 function for making a struct that can be used to define range in 'for - in' statement.
 
 ```swift
