@@ -11,10 +11,15 @@
 - Protocol Composition
 	- You can list as many porotocols as you need to, separating them by '&'
 	
-	```
-	func doSomething(target: ProtocolA & ProtocolB) { ... }
-	```
-	  
+```
+func doSomething(target: ProtocolA & ProtocolB) { ... }
+```
+- If a type already conforms to all of the requirements of a protocol, but has not yet stated that it adopts that protocol, you can make it adopt the protocol with an empty extension.
+
+```
+extension SomeType: TheProtocol {}
+```
+
 
 # CocoaPod
 - [The Elegant Solution To Installing The Same Pod In Multiple Targets](https://www.natashatherobot.com/cocoapods-installing-same-pod-multiple-targets/)
