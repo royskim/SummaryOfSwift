@@ -1,5 +1,25 @@
 # Summary of Swift
 
+## weak and unowned
+- weak : target can be nil.
+- unowned : Use this when you sure that the target will never be nil.
+
+## protocol
+- Self : 
+	- Instance conforms the protocol.
+	- this is not documented well even though in Apple's document.
+- Protocol Composition
+	- You can list as many porotocols as you need to, separating them by '&'
+	
+	```
+	func doSomething(target: ProtocolA & ProtocolB) { ... }
+	```
+	  
+
+# CocoaPod
+- [The Elegant Solution To Installing The Same Pod In Multiple Targets](https://www.natashatherobot.com/cocoapods-installing-same-pod-multiple-targets/)
+
+
 ## Types
 
 ### Usage of data types
